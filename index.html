@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Business Name</title>
+  <meta
+    name="description"
+    content="Professional local services with fast, reliable service. Contact us today for a quote."
+  />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0f1115;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 17, 21, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #272a31;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 72px;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #d7d7d7;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .hero {
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.75)),
+        url("https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1800&q=80")
+        center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 720px;
+      padding: 80px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #b9bcc4;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 7vw, 5.2rem);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      max-width: 620px;
+      color: #d8d8d8;
+      margin-bottom: 28px;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: white;
+      color: #111;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #e5e5e5;
+    }
+
+    .btn-secondary {
+      border: 1px solid #666;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: #22252b;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      max-width: 680px;
+      margin-bottom: 42px;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #aaaeb7;
+    }
+
+    .services {
+      background: #15181d;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: #1c2026;
+      border: 1px solid #2c3038;
+      padding: 28px;
+      border-radius: 14px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      color: #afb3bb;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-image {
+      min-height: 390px;
+      border-radius: 18px;
+      background:
+        url("https://images.unsplash.com/photo-1625047509248-ec889cbff17f?auto=format&fit=crop&w=1200&q=80")
+        center/cover no-repeat;
+    }
+
+    .about-text h2 {
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+    }
+
+    .about-text p {
+      color: #b5b8bf;
+      margin-bottom: 16px;
+    }
+
+    .reviews {
+      background: #15181d;
+    }
+
+    .review {
+      font-size: 1rem;
+    }
+
+    .review-stars {
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+    }
+
+    .review-name {
+      margin-top: 18px;
+      font-weight: bold;
+    }
+
+    .contact-box {
+      background: #1c2026;
+      border: 1px solid #30343c;
+      border-radius: 18px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .contact-box h2 {
+      margin-bottom: 12px;
+    }
+
+    .contact-details p {
+      margin-bottom: 10px;
+      color: #c4c6cb;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 14px;
+      background: #111419;
+      border: 1px solid #343840;
+      border-radius: 8px;
+      color: white;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    footer {
+      border-top: 1px solid #292d34;
+      padding: 28px 0;
+      color: #91959d;
+      text-align: center;
+    }
+
+    @media (max-width: 850px) {
+      .grid,
+      .about-layout,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 72vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+      <div class="logo">YOUR BUSINESS</div>
+
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a class="btn btn-primary" href="tel:15555555555">Call Now</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-content">
+      <span class="eyebrow">Local • Reliable • Professional</span>
+
+      <h1>Quality Service You Can Count On</h1>
+
+      <p>
+        Your Business Name provides dependable, professional services
+        for customers throughout your local area. Contact us today for
+        fast service and a free estimate.
+      </p>
+
+      <div class="button-row">
+        <a class="btn btn-primary" href="#contact">Get a Free Quote</a>
+        <a class="btn btn-secondary" href="tel:15555555555">Call 555-555-5555</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="services" class="services">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Our Services</h2>
+        <p>
+          Professional solutions for your needs, delivered with reliable
+          service and attention to detail.
+        </p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Service One</h3>
+          <p>
+            Describe the business's most important service here and why
+            customers should choose them.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Service Two</h3>
+          <p>
+            Add another major service, including the type of customer
+            or problem it helps.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Service Three</h3>
+          <p>
+            Add another service here. Keep each description short and
+            easy to understand.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Service Four</h3>
+          <p>
+            Use this card for another service or specialty the business offers.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Service Five</h3>
+          <p>
+            Highlight something that makes the business useful to local customers.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Custom Requests</h3>
+          <p>
+            Not sure whether we can help? Contact us and tell us what you need.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container about-layout">
+
+      <div class="about-image"></div>
+
+      <div class="about-text">
+        <span class="eyebrow">About Us</span>
+
+        <h2>Local Service. Professional Results.</h2>
+
+        <p>
+          Your Business Name proudly serves customers throughout the local area.
+          We focus on quality work, reliable communication, and making the
+          process as easy as possible for every customer.
+        </p>
+
+        <p>
+          Whether you need routine service or help with a larger project,
+          we're here to provide dependable results.
+        </p>
+
+        <a class="btn btn-primary" href="#contact">Contact Us</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="reviews" class="reviews">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>What Customers Say</h2>
+        <p>Replace these examples with real customer reviews.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card review">
+          <div class="review-stars">★★★★★</div>
+          <p>
+            “Great service, easy to work with, and everything was done
+            professionally. Highly recommended.”
+          </p>
+          <div class="review-name">— Customer Name</div>
+        </div>
+
+        <div class="card review">
+          <div class="review-stars">★★★★★</div>
+          <p>
+            “They responded quickly and did an excellent job. I would
+            definitely use them again.”
+          </p>
+          <div class="review-name">— Customer Name</div>
+        </div>
+
+        <div class="card review">
+          <div class="review-stars">★★★★★</div>
+          <p>
+            “Professional, reliable, and reasonably priced. Very happy
+            with the work.”
+          </p>
+          <div class="review-name">— Customer Name</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+
+      <div class="contact-box">
+
+        <div class="contact-details">
+          <span class="eyebrow">Get In Touch</span>
+          <h2>Request a Free Estimate</h2>
+
+          <p>📞 555-555-5555</p>
+          <p>📧 yourbusiness@email.com</p>
+          <p>📍 Your City, State</p>
+
+          <p style="margin-top: 20px;">
+            Call, text, or send us a message and we'll get back to you as soon as possible.
+          </p>
+        </div>
+
+        <form onsubmit="sendForm(event)">
+          <input id="name" type="text" placeholder="Your Name" required />
+          <input id="phone" type="tel" placeholder="Phone Number" required />
+          <input id="email" type="email" placeholder="Email Address" />
+          <textarea id="message" placeholder="What can we help you with?" required></textarea>
+
+          <button class="btn btn-primary" type="submit">
+            Request Estimate
+          </button>
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Your Business Name. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function sendForm(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+
+      const subject = encodeURIComponent("Website Quote Request");
+
+      const body = encodeURIComponent(
+        `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nMessage:\n${message}`
+      );
+
+      window.location.href =
+        `mailto:yourbusiness@email.com?subject=${subject}&body=${body}`;
+    }
+  </script>
+
+</body>
+</html>
